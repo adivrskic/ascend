@@ -1,0 +1,150 @@
+.ascend-today {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+  font-weight: 300;
+  text-shadow: 2px -1px rgba(0, 0, 0, 0.075);
+}
+
+.ascend-time {
+  position: relative;
+  font-size: 172px;
+  line-height: 172px;
+  font-weight: 100;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 100%;
+    transition: all 0.35s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  &:hover::after {
+    width: var(--seconds);
+    opacity: 1;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+.ascend-weather-date {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 64px;
+}
+
+.ascend-weather {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  flex: 0 0 50%;
+  padding-right: 20px;
+  cursor: pointer;
+
+  & > div {
+    display: flex;
+    flex-direction: row;
+    align-items: self-end;
+    gap: 10px;
+  }
+}
+
+.ascend-weather-loader {
+  position: fixed;
+  display: none;
+}
+
+.ascend-weather-loc {
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.ascend-weather-icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+.ascend-weather-temp {
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.ascend-date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  flex: 0 0 50%;
+  font-weight: 100;
+}
+
+.ascend-weekday {
+  font-size: 24px;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  font-weight: 300;
+}
+
+.ascend-day {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.ascend-day-mm {
+  display: flex;
+  position: relative;
+  font-size: 24px;
+}
+
+.svg {
+  background: transparent;
+  position: fixed;
+  transform: translate(-50%, -50%);
+
+  circle {
+    fill: transparent;
+    stroke: #fff;
+    stroke-width: 2px;
+    stroke-dasharray: 125.66371;
+    stroke-dashoffset: 125.66371;
+  }
+}
+
+.svg.loading circle {
+  animation: loading 1s linear;
+  animation-delay: 0.5s;
+}
+
+@keyframes loading {
+  0% {
+    stroke-dashoffset: 125.66371;
+  }
+
+  75% {
+    stroke-dashoffset: 0;
+    stroke-width: 2px;
+    opacity: 1;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    stroke-width: 20px;
+    opacity: 0;
+  }
+}

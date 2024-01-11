@@ -1,0 +1,38 @@
+.ascend-bookmarks {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 20px;
+  position: relative;
+  height: 100px;
+  overflow-y: scroll;
+  font-size: 14px;
+}
+
+.ascend-bookmark-keys {
+  height: 100%;
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+
+  div {
+    cursor: pointer;
+  }
+}
+
+.ascend-bookmark-values {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ascend-bookmark-link {
+  text-decoration: none;
+  color: #fff;
+  max-width: 90px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid #fff;
+  height: fit-content;
+  padding: 5px;
+  border-radius: 999px;
+}

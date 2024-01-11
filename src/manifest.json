@@ -9,7 +9,5 @@
     "https://wallhaven.cc/api/v1/*",
     "https://zenquotes.io/api/today"
   ],
-  "permissions": [
-    "storage", "geolocation"
-  ]
+  "permissions": ["storage", "geolocation", "bookmarks"]
 }

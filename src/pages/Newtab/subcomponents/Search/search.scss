@@ -1,0 +1,51 @@
+.ascend-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+
+  svg {
+    fill: #fff;
+    stroke: #fff;
+    height: 25px;
+    width: 25px;
+  }
+
+  &-input {
+    flex-basis: 70%;
+    font-size: 24px;
+    color: #fff;
+
+    /* light backdrops only */
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+      display: none;
+    }
+
+    &::placeholder {
+      color: #fff;
+      opacity: 0.5;
+      font-weight: 100;
+    }
+  }
+
+  &-icon,
+  &-submit,
+  &-options {
+    flex-basis: 10%;
+  }
+
+  &-input,
+  &-submit,
+  &-options {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+  }
+
+  &-submit,
+  &-options {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,33 @@
+.ascend-layout {
+  position: absolute;
+  bottom: 120px;
+  right: 40px;
+  width: 400px;
+  height: auto;
+  text-align: right;
+  transform: translate3d(200px, 0, 0) rotate3d(5, 5, 1, 30deg)
+    perspective(100cm);
+  opacity: 0;
+  animation: ascend 1s cubic-bezier(0.39, 0.575, 0.565, 1) forwards;
+  animation-delay: 0.5s;
+}
+
+.ascend-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  & > div:not(:only-child),
+  & > figure:not(:only-child) {
+    margin-bottom: 40px;
+  }
+}
+
+@keyframes ascend {
+  100% {
+    transform: translate3d(0, 0, 0) rotate3d(5, 5, 1, 30deg);
+    opacity: 1;
+  }
+}
