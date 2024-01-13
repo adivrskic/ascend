@@ -1,0 +1,41 @@
+.ascend-placeholder-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ascend-placeholder {
+  position: relative;
+  height: 20px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: 44;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.ascend-placeholder-loading {
+  position: absolute;
+  left: -40%;
+  height: 100%;
+  width: 40%;
+  background-image: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  animation: loading 1s infinite;
+  z-index: 45;
+}
+
+@keyframes loading {
+  0% {
+    left: -40%;
+  }
+  100% {
+    left: 100%;
+  }
+}

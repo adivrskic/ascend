@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { StateContext } from '../../context/StateProvider';
 import { useFetch } from '../../hooks/useFetch';
 import { getDate, getTime, getCondition } from '../../utils';
@@ -13,6 +14,7 @@ const Today = () => {
   const { day, month, weekday } = getDate();
   const [unit, setUnit] = useState('f');
   const [loader, setLoader] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
@@ -95,6 +97,7 @@ const Today = () => {
           </div>
         </div>
       </div>
+      {showModal ? createPortal(<div>TEST</div>, document.body) : null}
     </div>
   );
 };

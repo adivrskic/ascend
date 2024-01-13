@@ -7,10 +7,15 @@ const Search = () => {
   const [searchEngine, setSearchEngine] = useState('google');
   const searchEngines = [
     { engine: 'google', link: 'https://google.com/' },
-    { engine: 'bing', link: 'https://bing.com/' },
-    { engine: 'yahoo', link: 'https://yahoo.com' },
     { engine: 'duckduckgo', link: 'https://duckduckgo.com' },
+    { engine: 'yahoo', link: 'https://yahoo.com' },
+    { engine: 'bing', link: 'https://bing.com/' },
   ];
+
+  const handleSearchEngineClick = (engine) => {
+    setSearchEngine(engine);
+    setListActive(false);
+  };
 
   return (
     <div className="ascend-search">
@@ -20,9 +25,17 @@ const Search = () => {
         type="search"
         placeholder="Search..."
       />
-      <button className="ascend-search-submit">{icons['search']}</button>
       <button
-        className="ascend-search-options"
+        className={`ascend-search-submit ${
+          listActive ? 'ascend-search-option-list-active' : ''
+        }`}
+      >
+        {icons['search']}
+      </button>
+      <button
+        className={`ascend-search-options ${
+          listActive ? 'ascend-search-option-list-active' : ''
+        }`}
         onClick={() => setListActive(!listActive)}
       >
         {icons['options']}
@@ -30,11 +43,18 @@ const Search = () => {
 
       <div
         className={`ascend-search-option-list ${
-          listActive ? 'ascend-seach-option-list-active' : ''
+          listActive ? 'ascend-search-option-list-active' : ''
         }`}
       >
         {searchEngines.map(({ engine, link }) => (
-          <span>{icons[engine]}</span>
+          <span
+            className={`ascend-search-option ${
+              engine === searchEngine ? 'ascend-search-option-active' : ''
+            }`}
+            onClick={() => handleSearchEngineClick(engine)}
+          >
+            {icons[engine]}
+          </span>
         ))}
       </div>
     </div>
